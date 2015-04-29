@@ -1,0 +1,1 @@
+(function(){var n;n=function(){return 5}}).call(this);
