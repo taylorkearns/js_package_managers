@@ -1,0 +1,10 @@
+{
+  "name": "demo-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "lodash": "^3.7.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.2"
+  }
+}

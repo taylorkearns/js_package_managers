@@ -1,0 +1,14 @@
+{
+  "name": "demo-app",
+  "version": "1.0.0",
+  "authors": [
+    "Taylor Kearns <tkearns@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "~3.7.0"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.9.2"
+  }
+}

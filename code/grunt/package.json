@@ -1,0 +1,9 @@
+{
+  "name": "demo-app",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-sass": "^0.18.1"
+  }
+}
