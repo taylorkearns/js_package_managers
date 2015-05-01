@@ -348,12 +348,6 @@ Singleton tasks that don't take configuration options, just accept a function to
 
 Whereas Grunt creates output from each plugin and sends it into the next plugin, producing intermediate files along the way, Gulp creates virtual files and "pipes" them into each plugin. No intermediate files written, making it much faster.
 
-[Walkthrough video](http://tagtree.tv/gulp)
-
-[Mike Goodyear, Getting Started with Gulp](http://markgoodyear.com/2014/01/getting-started-with-gulp/) and his [comparison of a gulpfile and a Gruntfile](https://gist.github.com/markgoodyear/8497946#file-gruntfile-js)
-
-[Gulp cheatsheets](https://github.com/osscafe/gulp-cheatsheet)
-
 Install:
 
     npm install --global gulp
@@ -476,24 +470,17 @@ For building out pieces of an application like controllers, directives, etc.
     
 We can also [create our own generators](http://yeoman.io/authoring).
     
-## Build Tool: Browserify
-Use `require()` statements in the browser to require modules in a similar fashion to how they are used in node.
-
-If we want to use npm as our package manager.
-
-Seems like a way to build front ends for node projects.
-
-## Component
-## jspm.io
-## Jam
-## Duo
-Deals mainly in node-compatible JS modules. Also runs building and testing tasks.
-
-## Questions I Have Raised
-Should there be one comprehensive package manager, build tool, and scaffolding?
+## What We Didn't Discuss
+### Browserify
+### Component (http://componentjs.com/)
+### jspm.io (http://jspm.io/)
+### Jam (http://jamjs.org/)
+### Duo (http://duojs.org/)
 
 ## Troubleshooting
-Trouble installing and running global node modules: don't want to have to use `sudo` for installing packages but keep getting error message when installing and trying to run things.
+Trouble installing and running global node modules: don't want to have to use `sudo` for installing packages but keep getting error message when installing and trying to run grunt, gulp, etc.
+
+Solution is to modify where npm puts packages and make your user the owner of that directory.
 
 	$ npm config set prefix /usr/local
 	$ sudo chown yourusername /usr/local
@@ -503,4 +490,11 @@ Trouble installing and running global node modules: don't want to have to use `s
 	>> /usr/local/bin/bower
 
 ## Links
-[Better Web App Development Through Tooling (Video)](http://www.youtube.com/watch?feature=player_embedded&v=Mk-tFn2Ix6g)
+- [Notes](https://github.com/taylorkearns/js_package_managers)
+- [Slides](https://slidebean.com/p/t8i7lhUTpr/Javascript-Package-Managers-Build-Tools--Scaffolding)
+- [Better Web App Development Through Tooling (Video)](http://www.youtube.com/watch?feature=player_embedded&v=Mk-tFn2Ix6g)
+- [Walkthrough video](http://tagtree.tv/gulp)
+- [Mike Goodyear, Getting Started with Gulp](http://markgoodyear.com/2014/01/getting-started-with-gulp/) and his [comparison of a gulpfile and a Gruntfile](https://gist.github.com/markgoodyear/8497946#file-gruntfile-js)
+- [Gulp cheatsheets](https://github.com/osscafe/gulp-cheatsheet)
+
+
