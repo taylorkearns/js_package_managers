@@ -17,7 +17,7 @@ Similar to Rake in a Rails application.
 Tools for bootstrapping an application by setting up all of the initial directories and files, as well as the package managers and build tools.
 
 ### Javascript Packages
-Bundles of code for use in an application, command line interfaces (CLIs), browser plugins, or any other reusable javascript. 
+Bundles of code for use in an application, command line interfaces (CLIs), browser plugins, or any other reusable javascript.
 
 Common application packages:
 
@@ -37,7 +37,7 @@ Multiple PMs can be used on a single project as each PM has its own metadata fil
 4. Save the package's version info to the metadata file
 
 ### Package Manager Benefits
-Allows teams to share an application and guarantee correct versioning for all required javascripts. 
+Allows teams to share an application and guarantee correct versioning for all required javascripts.
 
 Similar to using a Gemfile and Bundler in a Rails application.
 
@@ -49,7 +49,7 @@ Node Package Manager. Node.js is a server-side javascript library. Node is the p
 
 Download the Node installer https://nodejs.org/download/ (61.2mb). Installs Node.js and npm. Should be able to run `node -v` and get the version number. Currently at `v0.12.0`.
 
-npm gets updated more frequently than Node.js does. Update npm with `sudo npm install npm --global`. 
+npm gets updated more frequently than Node.js does. Update npm with `sudo npm install npm --global`.
 
 ### Locally Installing npm Packages
 #### Without package.json
@@ -69,13 +69,13 @@ If we have a `package.json` file in our directory we just run `npm install` whic
       "name": "demo-app",
       "version": "1.0.0"
     }
-    
+
 Then if we install the package using the `--save` flag the package metadata will be added to the JSON tree as a dependency.
 
 ```
 npm install lodash --save
 ```
-    
+
     {
       "name": "package-managers",
       "version": "0.0.1",
@@ -89,7 +89,7 @@ npm install lodash --save
 Requires node, npm, and git.
 
     npm install -g bower
-    
+
 Install packages with `bower install`. Can pass the `--save` or `--save-dev` arguments. Bower installs packages to `bower_components/`.
 
 ### bower.json
@@ -107,14 +107,14 @@ Interactively create a bower.json with `bower init`.
       ],
       "dependencies": { // for production
         "<name>": "<version>",
-        "<name>": "<folder>",
-        "<name>": "<package>"
+        "<name>": "<version>"
       },
       "devDependencies": { // for development
-        "<test-framework-name>": "<version>"
+        "<name>": "<version>",
+        "<name>": "<version>"
       }
     }
-    
+
 ### Maintaining Dependencies
 
 Add a package to bower.json `dependencies` or `devDependencies` with `install <package> --save` and `install <package> --save-dev`, respectively.
@@ -125,7 +125,7 @@ Registering your package allows others to install it with a short name, like `bo
 Register a package with
 
     bower register <my-package-name> <git-endpoint>
-    
+
 ### API Notables
 #### home
 
@@ -148,7 +148,7 @@ Source mapping can be used by build tools to easily consume Bower packages.
       "jquery": "bower_components/jquery/dist/jquery.js",
       "underscore": "bower_components/underscore/underscore.js"
     }
-    
+
 Every command supports the `--json` option.
 
 ### Programmatic API
@@ -181,7 +181,7 @@ You may try to set the CI variable manually before running your Bower commands. 
         ]
       }
     }
- 
+
 ### Tools and Integration
 Integrates with Grunt, Gulp, Ruby, Rails. [http://bower.io/docs/tools/]()
 
@@ -202,7 +202,7 @@ Grunt and Grunt plugins are installed and managed via npm.
 Install the CLI globally
 
     npm install -g grunt-cli
-   
+
 We can now run the `grunt` command, which looks for a locally installed Grunt using node's require() system. If a locally installed Grunt is found, the CLI loads the local installation of the Grunt library, applies the configuration from your `Gruntfile`, and executes any tasks you've requested for it to run.
 
 ### Grunt Project Setup
@@ -248,16 +248,16 @@ Named `Gruntfile.js` or `Gruntfile.coffee` and used to configure or define tasks
 
 Add Grunt and gruntplugins to an existing package.json is with
 
-    npm install <module> --save-dev. 
-    
+    npm install <module> --save-dev.
+
 This will install the module locally and add it to the devDependencies section, using a tilde version range.
 
 ##### Notable plugins and elements of the Gruntfile
 
     pkg: grunt.file.readJSON('package.json')
-    
+
 For reading values in from the package.json.
-    
+
 ###### watch
 When a file in the `files:` array is modified, tasks in the `tasks:` array will be executed.
 
@@ -281,7 +281,7 @@ When a task is run, Grunt looks for its configuration under a property of the sa
           // concat task "bar" target options and files
         }
     )}
-    
+
 These tasks can be run individually with `grunt concat:foo` or `grunt concat:bar`, or all together with `grunt concat`.
 
 Inside a task configuration, an `options` property may be specified to override built-in defaults.
@@ -296,7 +296,7 @@ Inside a task configuration, an `options` property may be specified to override 
             // "foo" target options may go here, overriding task-level options.
           }
     ...
-    
+
 ### Files
 There are several ways to define source-destination file mappings, offering varying degrees of verbosity and control. Any multi task will understand all the following formats.
 
@@ -318,7 +318,7 @@ All files formats support `src` and `dest` but the "Compact" and "Files Array" f
             ext: '.min.js',   // Dest filepaths will have this extension.
             extDot: 'first'   // Extensions in filenames begin after the first dot
     ...
-    
+
 ### Templates
 Templates specified using `<%= %>` delimiters will be automatically expanded when tasks read them from the config. Additionally, grunt and its methods are available inside templates, eg. `<%= grunt.template.today('yyyy-mm-dd') %>`.
 
@@ -328,18 +328,18 @@ Every time Grunt is run, you specify one or more tasks to run, which tells Grunt
 To group a set of tasks under one alias:
 
     grunt.registerTask(taskName, [description, ] taskList)
-   
+
 Where `taskList` is an array of tasks.
 
 To execute a default list of tasks each time `grunt` is run:
 
     grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify'])
-    
+
 #### Basic Tasks
 Singleton tasks that don't take configuration options, just accept a function to execute.
 
-    grunt.registerTask('foo', 
-      'A sample task that logs stuff.', 
+    grunt.registerTask('foo',
+      'A sample task that logs stuff.',
       function(arg1, arg2) {
         // do something
 
@@ -352,7 +352,7 @@ Install:
 
     npm install --global gulp
     npm install --save-dev gulp
-    
+
 Create `gulpfile.js`:
 
     var gulp = require('gulp');
@@ -360,7 +360,7 @@ Create `gulpfile.js`:
     gulp.task('default', function() {
       // place code for your default task here
     });
-    
+
 ### API
 
 #### gulp.src(globs[, options])
@@ -371,7 +371,7 @@ Emits files matching provided glob or an array of globs. Returns a stream of Vin
       .pipe(jade())
       .pipe(minify())
       .pipe(gulp.dest('build/minified_templates'));
-      
+
 #### gulp.dest(path[, options])
 
 Writes files. Re-emits all data passed to it so you can pipe to multiple folders.
@@ -387,11 +387,11 @@ Define a task using Orchestrator.
     gulp.task('somename', function() {
       // Do stuff
     });
-    
+
 Pass in dependent tasks which must be run before your task:
 
     gulp.task('mytask', ['array', 'of', 'task', 'names'], function() {
-    
+
 #### gulp.watch(glob [, opts], tasks) or gulp.watch(glob [, opts, callback])
 Watch files and do something when a file changes. Returns an EventEmitter that emits change events.
 
@@ -399,7 +399,7 @@ Watch files and do something when a file changes. Returns an EventEmitter that e
     watcher.on('change', function(event) {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
-    
+
 ### Orchestrator
 A module for sequencing and executing tasks and dependencies in maximum concurrency
 
@@ -417,12 +417,12 @@ A module for sequencing and executing tasks and dependencies in maximum concurre
     orchestrator.start('thing1', 'thing2', function (err) {
       // all done
     });
-    
+
 ### Plugins
 Gulp plugins tend to be smaller in scope than Grunt plugins. This makes for smaller files, and likewise more required plugins listed in the Gulpfile.
 
- 
-      
+
+
 ## Scaffolding: Yeoman (Yo)
 "Yeoman Workflow" consists of Yo, Bower, and a build tool (Grunt or Gulp).
 
@@ -431,13 +431,13 @@ Employs scaffolding templates called _generators_.
 ### Installation
 
     npm install -g yo bower grunt-cli gulp
-    
+
 ### Basic Web App Scaffolding
 
 Install the `generator-webapp` generator:
 
     npm install -g generator-webapp
-    
+
 This will scaffold out a project containing
 
 - HTML5 Boilerplate
@@ -450,7 +450,7 @@ Prompts during setup allow us to exclude particular features. This generator use
 Inside of an empty directory run
 
     yo webapp
-    
+
 ### AngularJS Scaffolding
 
     npm install -g generator-angular
@@ -461,15 +461,15 @@ Inside of an empty directory run
 This creates boilerplate directives and controllers as well as scaffolded Karma unit tests.
 
 ### Sub-Generators
-For building out pieces of an application like controllers, directives, etc. 
+For building out pieces of an application like controllers, directives, etc.
 
     yo angular:controller myController
     yo angular:directive myDirective
     yo angular:filter myFilter
-    yo angular:service myService    
-    
+    yo angular:service myService
+
 We can also [create our own generators](http://yeoman.io/authoring).
-    
+
 ## What We Didn't Discuss
 ### Browserify
 ### Component (http://componentjs.com/)
@@ -483,7 +483,7 @@ Trouble installing and running global node modules: don't want to have to use `s
 Solution is to modify where npm puts packages and make your user the owner of that directory.
 
 	$ npm config set prefix /usr/local
-	$ sudo chown yourusername /usr/local
+	$ sudo chown -R <yourusername> /usr/local
 	$ npm install -g bower
 
 	$ which bower
